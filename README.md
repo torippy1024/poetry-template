@@ -8,7 +8,7 @@
 ## つかいかた
 cloneしてよしなに。
 
-以下のようなシェルスクリプトを作ってPathを通しておくと、`poetry-template.ps [project-name]` で「templateのclone」・「フォルダのrename」・「vscodeで開く」までできて楽。
+以下のようなシェルスクリプトを作ってPathを通しておくと、`poetry-template [project-name]` で「templateのclone」・「フォルダのrename」・「vscodeで開く」までできて楽。
 ```ps1
 # poetry-template.ps1
 Param ([string]$projectName)
