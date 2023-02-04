@@ -11,7 +11,11 @@ python = "^3.10"
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
 black = "^23.1.0"
+taskipy = "^1.10.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+lint = "poetry run flake8 src --show-source --statistics"
