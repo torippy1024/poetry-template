@@ -6,12 +6,13 @@ authors = ["torippy <47879788+torippy1024@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = ">=3.10,<3.12"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
 black = "^23.1.0"
 taskipy = "^1.10.3"
+pyinstaller = "^5.7.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -19,3 +20,5 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
 lint = "poetry run flake8 src --show-source --statistics"
+build = "poetry run pyinstaller -y src/main.py"
+build-one = "poetry run pyinstaller -y src/main.py --onefile"
