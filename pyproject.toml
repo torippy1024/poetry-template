@@ -4,11 +4,13 @@ version = "0.1.0"
 description = ""
 authors = ["torippy <47879788+torippy1024@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{include = "poetry_template"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+black = "^23.1.0"
 
 [build-system]
 requires = ["poetry-core"]
