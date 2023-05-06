@@ -8,6 +8,7 @@ packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
+pydantic = {extras = ["dotenv"], version = "^1.10.7"}
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
