@@ -1,16 +1,16 @@
-def addition(num1: float, num2: float):
-    return num1 + num2
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from src.routers import api
 
 
-if __name__ == "__main__":
-    print("Please enter two numbers.")
+app = FastAPI()
 
-    try:
-        num1 = float(input("num1: "))
-        num2 = float(input("num2: "))
-    except ValueError:
-        print("Invalid input. Please enter number.")
-        exit()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-    result = addition(num1, num2)
-    print(f"{num1} + {num2} = {result}")
+app.include_router(api.router, prefix="/api")

@@ -8,6 +8,8 @@ packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.12"
+fastapi = {extras = ["all"], version = "^0.95.1"}
+uvicorn = {extras = ["standard"], version = "^0.20.0"}
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
@@ -21,7 +23,8 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
-run = "poetry run python src/main.py"
+run = "poetry run uvicorn src.main:app"
+watch = "poetry run uvicorn src.main:app --reload"
 lint = "poetry run flake8 src --show-source --statistics"
 build = "poetry run pyinstaller -y src/main.py"
 build-one = "poetry run pyinstaller -y src/main.py --onefile"
