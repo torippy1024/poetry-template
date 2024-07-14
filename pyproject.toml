@@ -14,7 +14,7 @@ pydantic = {extras = ["dotenv"], version = "^1.10.7"}
 flake8 = "^6.0.0"
 black = "^23.1.0"
 taskipy = "^1.10.3"
-pyinstaller = "^5.7.0"
+pyinstaller = "^5.13.1"
 pytest = "^7.2.1"
 
 [build-system]
