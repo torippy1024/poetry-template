@@ -1,4 +1,8 @@
 {
-  "python.formatting.provider": "black",
-  "editor.formatOnSave": true
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true
+  },
+  "black-formatter.importStrategy": "fromEnvironment",
+  "flake8.importStrategy": "fromEnvironment"
 }
