@@ -7,15 +7,15 @@ readme = "README.md"
 packages = [{include = "src"}]
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.12"
+python = ">=3.9,<3.14"
 pydantic = {extras = ["dotenv"], version = "^1.10.13"}
 
 [tool.poetry.group.dev.dependencies]
-flake8 = "^6.0.0"
-black = "^24.3.0"
-taskipy = "^1.10.3"
-pyinstaller = "^5.13.1"
-pytest = "^7.2.1"
+flake8 = "^7.1.1"
+black = "^24.8.0"
+taskipy = "^1.13.0"
+pyinstaller = "^6.10.0"
+pytest = "^8.3.3"
 
 [build-system]
 requires = ["poetry-core"]
@@ -24,6 +24,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.taskipy.tasks]
 run = "poetry run python src/main.py"
 lint = "poetry run flake8 src --show-source --statistics"
+format = "poetry run black src"
 build = "poetry run pyinstaller -y src/main.py"
 build-one = "poetry run pyinstaller -y src/main.py --onefile"
 test = "poetry run pytest"
