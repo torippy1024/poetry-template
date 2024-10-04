@@ -18,8 +18,6 @@ jobs:
         python-version: ${{ env.PYTHON_VERSION }}
     - name: Install Poetry
       run: curl -sSL https://install.python-poetry.org | python3 -
-    - name: Configure Poetry to not create virtualenvs
-      run: poetry config virtualenvs.create false
     - name: Install dependencies
       run: poetry install
     - name: Run Lint
