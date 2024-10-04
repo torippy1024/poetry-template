@@ -1,0 +1,28 @@
+name: Pylint
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: '3.11'
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    - name: Install Poetry
+      run: curl -sSL https://install.python-poetry.org | python3 -
+    - name: Configure Poetry to not create virtualenvs
+      run: poetry config virtualenvs.create false
+    - name: Install dependencies
+      run: poetry install
+    - name: Run Lint
+      run: poetry run task lint
+    - name: Run Tests
+      run: poetry run task test
